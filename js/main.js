@@ -159,7 +159,7 @@ function seekTo() {
 }
 
 function setVolume() {
-  curr_track.volume = volume_slider.value / 100;
+  curr_track.volume = volume_slider.value / 50;
 }
 
 function seekUpdate() {
