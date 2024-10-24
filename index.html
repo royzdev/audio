@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Royz.Music/ </title>
+  <!-- Load FontAwesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+      @font-face {
+          font-family: 'TTNorms-Medium.otf';
+          src: url('google/TTNorms-Medium.otf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+      body {
+          background-color: #000000;
+          color: rgb(0, 0, 0);
+          font-family: 'why.woff2','TTNorms-Medium.otf', sans-serif;
+          text-align: center;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          position: relative;
+      }
+
+      .views {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(182, 153, 109, 0.884);
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.938);
+        }
+
+      .views img {
+            width: 20px;
+            margin-right: 8px; 
+        }
+
+      .views span {
+            font-size: 16px;
+        }
+      </style>
+
+  <!-- Load the custom CSS style file -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="player">
+    <div class="details">
+      <div class="track-art"></div>
+      <div class="track-name">Track Name</div>
+      <div class="track-artist">Track Artist</div>
+    </div>
+    <div class="buttons">
+      <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
+      <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
+      <div class="next-track" onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
+    </div>
+    <div class="slider_container">
+      <div class="current-time">00:00</div>
+      <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+      <div class="total-duration">00:00</div>
+    </div>
+    <div class="slider_container">
+      <i class="fa fa-volume-down"></i>
+      <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+      <i class="fa fa-volume-up"></i>
+    </div>
+    <div class="views">
+      <img src="https://nlleer.guru/eye.jpg" alt="Views">
+      <span id="view-count">0</span>
+    </div>
+
+  </div>
+
+  <!-- Load the main script for the player -->
+  <script src="js/main.js"></script>
+
+  <script>
+    function updateViewCount() {
+        let count = localStorage.getItem('viewCount');
+        if (!count) {
+            count = 0;
+        }
+
+        count++;
+        localStorage.setItem('viewCount', count);
+        document.getElementById('view-count').textContent = count;
+    }
+
+    window.onload = updateViewCount;
+  </script>
+
+  <script type="text/javascript">
+  document.onkeydown = function(e) {
+  if(event.keyCode == 123) {
+  return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+  return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+  return false;
+  }
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+  return false;
+  }
+  }
+  </script>
+
+</body>
+</html>
