@@ -104,21 +104,22 @@
     window.onload = updateViewCount;
   </script>
 
-  <script language="JavaScript">
-  document.ondragstart = test;
-  //запрет на перетаскивание 
-  document.onselectstart = test;
-  //запрет на выделение элементов страницы
-  document.oncontextmenu = test;
-  //запрет на выведение контекстного меню
-  function test() {
-  return false
+  <script type="text/javascript">
+  document.onkeydown = function(e) {
+  if(event.keyCode == 123) {
+  return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+  return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+  return false;
+  }
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+  return false;
+  }
   }
   </script>
-  <!--[if gte IE 5]><script language="JScript"> 
-  createPopup().show( 0, 0, 0, 0, 0 ); 
-  </script><![endif]-->
-  <body oncopy="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" oncut="wpccAlert('wpcc-fail','Copying is disabled.'); return false;" ondragstart="return false;" ondrop="return false;" oncontextmenu="return false;">
 
 </body>
 </html>
